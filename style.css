@@ -84,3 +84,50 @@ button {
   line-height: 1.6;
   opacity: 0.9;
 }
+/* ===== Mejoras visuales: overlay + animación + ajuste sección siguiente ===== */
+
+/* Overlay para mejorar legibilidad del texto sobre el fondo */
+#hero {
+  position: relative;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Asegura que el contenido quede arriba del overlay */
+#hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Animación suave de entrada */
+#hero h1,
+#hero .buttons {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+#hero .buttons {
+  animation-delay: 0.15s;
+}
+
+/* Keyframes de la animación */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Un poco más de aire visual al llegar a la siguiente sección */
+#next {
+  padding-top: 80px;
+}
+
