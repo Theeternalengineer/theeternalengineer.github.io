@@ -1,27 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Para ti</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi sitio</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+
+    section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    /* Sección inicial */
+    #hero { background: #f7f7f7; }
+    #hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 28px; line-height: 1.1; }
+
+    .buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+    button {
+      padding: 14px 34px;
+      font-size: 1.15rem;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.18s ease;
+      user-select: none;
+    }
+
+    #yes { background: #000; color: #fff; }
+    #no  { background: #e6e6e6; color: #111; }
+
+    /* Siguiente sección */
+    #next { background: #ffffff; }
+    #next h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 12px; }
+    #next p { max-width: 850px; font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
+  </style>
 </head>
+
 <body>
-  <main class="container">
-    <h1>Para ti</h1>
-
-    <div class="letter">
-      <p>
-        AQUÍ VA TU CARTA.<br><br>
-        Puedes escribirla tal como la tienes.<br>
-        Con saltos de línea, sin prisa.<br><br>
-        No hace falta nada más.
-      </p>
+  <!-- HERO -->
+  <section id="hero">
+    <h1>¿Lista para ver tu carta?</h1>
+    <div class="buttons">
+      <button id="yes" type="button">Sipiriri</button>
+      <button id="no" type="button">Nopororo</button>
     </div>
+  </section>
 
-    <footer>
-      <p>— Con amor</p>
-    </footer>
-  </main>
+  <!-- SECCIÓN A LA QUE REDIRIGE -->
+  <section id="next">
+    <h2>Bienvenido a la siguiente sección</h2>
+    <p>
+      Aquí ya pones el contenido real de tu sitio (texto, imágenes, botones, lo que sea).
+      Esta sección es el “destino” del botón Sí.
+    </p>
+  </section>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const nextSection = document.getElementById("next");
+
+    // Botón "No" juguetón (se mueve cuando intentas pasar encima)
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 220 - 110; // -110 a 110 px
+      const y = Math.random() * 180 - 90;  // -90 a 90 px
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    // Botón "Sí" -> transición a la siguiente sección
+    yesBtn.addEventListener("click", () => {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
 </body>
 </html>
