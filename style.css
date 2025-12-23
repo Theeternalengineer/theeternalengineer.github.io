@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #faf7f5;
+  color: #2c2c2c;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.letter p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+footer {
+  margin-top: 80px;
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
