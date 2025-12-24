@@ -37,7 +37,6 @@
   <script>
     const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
-    const startSection = document.getElementById("start");
 
     // Botón "No" juguetón
     noBtn.addEventListener("mouseenter", () => {
@@ -46,9 +45,9 @@
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
     });
 
-    // Botón "Sí" -> scroll suave
+    // Botón "Sí" -> ir a página aparte
     yesBtn.addEventListener("click", () => {
-      startSection.scrollIntoView({ behavior: "smooth" });
+      window.location.href = "wrapped.html";
     });
   </script>
 
