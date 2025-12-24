@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wrapped — Adri / Pinki</title>
-  <link rel="stylesheet" href="wrapped.css?v=2" />
+  <link rel="stylesheet" href="wrapped.css?v=3" />
 </head>
 
 <body>
@@ -227,7 +227,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="17"></span></div>
     </section>
 
-    <!-- 19 (extra para llegar a 20) -->
+    <!-- 19 -->
     <section class="slide" data-title="Recap 4">
       <div class="content">
         <p class="kicker">Recap</p>
@@ -262,21 +262,14 @@
       // Config editable
       // =========================
       const CONFIG = {
-        // Inicio relación (zona -06:00)
         startDateISO: "2025-10-18T00:00:00-06:00",
-
-        // Mensajes enviados (placeholder)
         messagesSent: 0,
-
-        // Frases (3 slides)
         phrases: [
           { text: "(pon aquí la frase 1)", count: 0 },
           { text: "(pon aquí la frase 2)", count: 0 },
           { text: "(pon aquí la frase 3)", count: 0 },
         ],
-
-        // Timing
-        defaultStoryMs: 5200, // auto-avance
+        storyMs: 5200
       };
 
       // =========================
@@ -286,7 +279,6 @@
       const slides = Array.from(document.querySelectorAll(".slide"));
       const progress = document.getElementById("progress");
 
-      // UI targets
       const sinceClock = document.getElementById("sinceClock");
       const messagesCount = document.getElementById("messagesCount");
 
@@ -302,12 +294,16 @@
       const nextSectionBtn = document.getElementById("nextSectionBtn");
 
       // =========================
-      // Songs (una por story) - placeholders automáticos
+      // Songs placeholders (una por story)
       // =========================
       const songs = Array.from({ length: slides.length }, (_, i) => `Pendiente (Story ${i + 1})`);
+      document.querySelectorAll(".songName").forEach((el) => {
+        const idx = Number(el.getAttribute("data-song-index"));
+        el.textContent = songs[idx] ?? "Pendiente";
+      });
 
       // =========================
-      // Init content
+      // Init values
       // =========================
       if (messagesCount) messagesCount.textContent = String(CONFIG.messagesSent);
 
@@ -319,21 +315,13 @@
       if (phrase2Count) phrase2Count.textContent = String(CONFIG.phrases[1].count);
       if (phrase3Count) phrase3Count.textContent = String(CONFIG.phrases[2].count);
 
-      document.querySelectorAll(".songName").forEach((el) => {
-        const idx = Number(el.getAttribute("data-song-index"));
-        el.textContent = songs[idx] ?? "Pendiente";
-      });
+      // =========================
+      // Variación visual: g1..g20
+      // =========================
+      slides.forEach((s, i) => s.classList.add(`g${Math.min(i + 1, 20)}`));
 
       // =========================
-      // Variación visual: asigna clase g1..g20 a cada slide
-      // =========================
-      slides.forEach((s, i) => {
-        const n = Math.min(i + 1, 20);
-        s.classList.add(`g${n}`);
-      });
-
-      // =========================
-      // Progress bars (se ajusta a N slides)
+      // Progress bars (RAF, pausable)
       // =========================
       progress.style.setProperty("--n", slides.length);
       progress.innerHTML = "";
@@ -349,31 +337,175 @@
         bars.push({ bar, fill });
       }
 
-      // =========================
-      // Stories engine (pausable)
-      // =========================
-      let current = 0;
-      let timer = null;
-
-      let startedAt = 0;
-      let remainingMs = CONFIG.defaultStoryMs;
-      let paused = false;
-
-      function clearTimer() {
-        if (timer) {
-          window.clearTimeout(timer);
-          timer = null;
-        }
-      }
-
-      function setBarState(index) {
+      function setBarClasses(activeIndex) {
         bars.forEach((b, i) => {
-          b.bar.classList.toggle("active", i === index);
-          b.bar.classList.toggle("done", i < index);
+          b.bar.classList.toggle("active", i === activeIndex);
+          b.bar.classList.toggle("done", i < activeIndex);
+          if (i > activeIndex) b.fill.style.width = "0%";
+          if (i < activeIndex) b.fill.style.width = "100%";
         });
       }
 
-      function setFillInstant(percent) {
-        const fill = bars[current]?.fill;
-        if (!fill) return;
-        fill.style.transitio
+      // =========================
+      // Stories engine (RAF)
+      // =========================
+      let current = 0;
+      let paused = false;
+
+      // tiempo de story
+      let storyStart = 0;      // timestamp RAF
+      let elapsed = 0;         // ms acumulados
+      const storyDuration = () => CONFIG.storyMs;
+
+      let rafId = null;
+
+      function stopRaf() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+
+      function show(index) {
+        stopRaf();
+
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((s, i) => s.classList.toggle("active", i === current));
+
+        setBarClasses(current);
+
+        // reset timing
+        paused = false;
+        elapsed = 0;
+        storyStart = 0;
+
+        // si es la última, no auto-avances
+        if (current === slides.length - 1) {
+          // deja barra completa en último
+          bars[current].fill.style.width = "100%";
+          return;
+        }
+
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function tick(ts) {
+        if (!storyStart) storyStart = ts;
+
+        if (!paused) {
+          const delta = ts - storyStart;
+          storyStart = ts;
+          elapsed += delta;
+
+          const p = Math.min(1, elapsed / storyDuration());
+          bars[current].fill.style.width = (p * 100).toFixed(3) + "%";
+
+          if (p >= 1) {
+            show(current + 1);
+            return;
+          }
+        } else {
+          // si está pausado, solo actualiza el timestamp base para no saltar al reanudar
+          storyStart = ts;
+        }
+
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function next() {
+        if (current < slides.length - 1) show(current + 1);
+      }
+
+      function prev() {
+        if (current > 0) show(current - 1);
+      }
+
+      function pauseStory() {
+        if (current === slides.length - 1) return;
+        paused = true;
+      }
+
+      function resumeStory() {
+        if (current === slides.length - 1) return;
+        paused = false;
+      }
+
+      // Tap navigation (izq=prev, der=next) — SOLO cuando NO está pausado
+      app.addEventListener("click", (e) => {
+        const target = e.target;
+        if (target && (target.tagName === "BUTTON" || target.closest("button"))) return;
+        if (paused) return;
+
+        const x = e.clientX;
+        const w = window.innerWidth;
+        if (x < w * 0.28) prev();
+        else next();
+      });
+
+      // Press-and-hold pause
+      app.addEventListener("mousedown", (e) => {
+        const target = e.target;
+        if (target && (target.tagName === "BUTTON" || target.closest("button"))) return;
+        pauseStory();
+      });
+      window.addEventListener("mouseup", () => resumeStory());
+
+      app.addEventListener("touchstart", (e) => {
+        const target = e.target;
+        if (target && (target.tagName === "BUTTON" || target.closest("button"))) return;
+        pauseStory();
+      }, { passive: true });
+      window.addEventListener("touchend", () => resumeStory(), { passive: true });
+
+      // Keyboard
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          next();
+        }
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          prev();
+        }
+      });
+
+      // Pausa al cambiar de pestaña
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) pauseStory();
+        else resumeStory();
+      });
+
+      // CTA
+      if (restartBtn) restartBtn.addEventListener("click", () => show(0));
+      if (nextSectionBtn) nextSectionBtn.addEventListener("click", () => alert("Siguiente sección: listo para conectarse."));
+
+      // =========================
+      // Reloj en vivo desde 2025-10-18
+      // =========================
+      const startMs = new Date(CONFIG.startDateISO).getTime();
+
+      function pad2(n) { return String(n).padStart(2, "0"); }
+
+      function tickClock() {
+        if (!sinceClock) return;
+
+        const now = Date.now();
+        const diff = Math.max(0, now - startMs);
+
+        const sec = Math.floor(diff / 1000);
+        const days = Math.floor(sec / 86400);
+        const hours = Math.floor((sec % 86400) / 3600);
+        const mins = Math.floor((sec % 3600) / 60);
+        const s = sec % 60;
+
+        sinceClock.textContent = `${days} días · ${pad2(hours)}:${pad2(mins)}:${pad2(s)}`;
+      }
+      tickClock();
+      setInterval(tickClock, 1000);
+
+      // Start
+      show(0);
+
+    })();
+  </script>
+
+</body>
+</html>
