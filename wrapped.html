@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wrapped — Adri / Pinki</title>
-  <link rel="stylesheet" href="wrapped.css?v=1" />
+  <link rel="stylesheet" href="wrapped.css?v=2" />
 </head>
 
 <body>
@@ -14,19 +14,20 @@
 
   <main class="wrapped" id="wrappedApp" aria-label="Wrapped en formato stories">
 
-    <!-- Barra de progreso (20) -->
+    <!-- Barra de progreso (se ajusta sola a N slides) -->
     <div class="progress" id="progress" aria-hidden="true"></div>
 
-    <!-- Slides -->
+    <!-- 1 -->
     <section class="slide active" data-title="Intro">
       <div class="content">
         <p class="kicker">Tu 2025 en una historia</p>
         <h1 class="title">Adri / Pinki<br>Wrapped</h1>
-        <p class="sub">Tap / click para avanzar · Flechas para navegar</p>
+        <p class="sub">Tap para avanzar · Mantén presionado para pausar</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="0"></span></div>
     </section>
 
+    <!-- 2 -->
     <section class="slide" data-title="Tiempo juntos">
       <div class="content">
         <p class="kicker">Tiempo juntos</p>
@@ -37,11 +38,12 @@
           <div class="statSmall">días · horas · min · seg</div>
         </div>
 
-        <p class="note">Actualizándose en tiempo real</p>
+        <p class="note">Actualizándose en tiempo real.</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="1"></span></div>
     </section>
 
+    <!-- 3 -->
     <section class="slide" data-title="Mensajes">
       <div class="content">
         <p class="kicker">Mensajes enviados</p>
@@ -57,7 +59,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="2"></span></div>
     </section>
 
-    <!-- 3 slides de frases -->
+    <!-- 4 -->
     <section class="slide" data-title="Frase 1">
       <div class="content">
         <p class="kicker">Frase más icónica #1</p>
@@ -73,6 +75,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="3"></span></div>
     </section>
 
+    <!-- 5 -->
     <section class="slide" data-title="Frase 2">
       <div class="content">
         <p class="kicker">Frase más icónica #2</p>
@@ -88,6 +91,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="4"></span></div>
     </section>
 
+    <!-- 6 -->
     <section class="slide" data-title="Frase 3">
       <div class="content">
         <p class="kicker">Frase más icónica #3</p>
@@ -103,34 +107,37 @@
       <div class="song">Canción: <span class="songName" data-song-index="5"></span></div>
     </section>
 
-    <!-- (Opcional) 4 slides “puente” antes del Top 5 -->
+    <!-- 7 -->
     <section class="slide" data-title="Highlight 1">
       <div class="content">
         <p class="kicker">Highlight</p>
         <h2 class="title">La parte donde todo se sintió simple</h2>
-        <p class="body">Texto placeholder. Aquí va una línea emocional corta.</p>
+        <p class="body">Texto placeholder (1–2 líneas). Algo corto, emocional, directo.</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="6"></span></div>
     </section>
 
+    <!-- 8 -->
     <section class="slide" data-title="Highlight 2">
       <div class="content">
         <p class="kicker">Highlight</p>
         <h2 class="title">La parte donde nos elegimos</h2>
-        <p class="body">Texto placeholder. Mantén 1–2 líneas máximo.</p>
+        <p class="body">Texto placeholder (1–2 líneas). Mantén el ritmo “story”.</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="7"></span></div>
     </section>
 
+    <!-- 9 -->
     <section class="slide" data-title="Highlight 3">
       <div class="content">
         <p class="kicker">Highlight</p>
         <h2 class="title">La parte donde el mundo bajó el volumen</h2>
-        <p class="body">Texto placeholder. Aquí cabe un recuerdo corto.</p>
+        <p class="body">Texto placeholder (1–2 líneas). Algo que se sienta íntimo.</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="8"></span></div>
     </section>
 
+    <!-- 10 -->
     <section class="slide" data-title="Antes del Top 5">
       <div class="content">
         <p class="kicker">Ahora sí</p>
@@ -140,7 +147,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="9"></span></div>
     </section>
 
-    <!-- Top 5 momentos (5 slides) -->
+    <!-- 11 -->
     <section class="slide" data-title="Top 1">
       <div class="content">
         <p class="kicker">Top 1</p>
@@ -150,6 +157,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="10"></span></div>
     </section>
 
+    <!-- 12 -->
     <section class="slide" data-title="Top 2">
       <div class="content">
         <p class="kicker">Top 2</p>
@@ -159,6 +167,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="11"></span></div>
     </section>
 
+    <!-- 13 -->
     <section class="slide" data-title="Top 3">
       <div class="content">
         <p class="kicker">Top 3</p>
@@ -168,6 +177,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="12"></span></div>
     </section>
 
+    <!-- 14 -->
     <section class="slide" data-title="Top 4">
       <div class="content">
         <p class="kicker">Top 4</p>
@@ -177,6 +187,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="13"></span></div>
     </section>
 
+    <!-- 15 -->
     <section class="slide" data-title="Top 5">
       <div class="content">
         <p class="kicker">Top 5</p>
@@ -186,16 +197,17 @@
       <div class="song">Canción: <span class="songName" data-song-index="14"></span></div>
     </section>
 
-    <!-- 4 slides extra para completar 20 -->
+    <!-- 16 -->
     <section class="slide" data-title="Recap 1">
       <div class="content">
         <p class="kicker">Recap</p>
         <h2 class="title">Lo que nos sostiene</h2>
-        <p class="body">Texto placeholder (emocional, nivel medio, sin groserías).</p>
+        <p class="body">Texto placeholder (emocional, nivel medio, directo).</p>
       </div>
       <div class="song">Canción: <span class="songName" data-song-index="15"></span></div>
     </section>
 
+    <!-- 17 -->
     <section class="slide" data-title="Recap 2">
       <div class="content">
         <p class="kicker">Recap</p>
@@ -205,6 +217,7 @@
       <div class="song">Canción: <span class="songName" data-song-index="16"></span></div>
     </section>
 
+    <!-- 18 -->
     <section class="slide" data-title="Recap 3">
       <div class="content">
         <p class="kicker">Recap</p>
@@ -214,7 +227,17 @@
       <div class="song">Canción: <span class="songName" data-song-index="17"></span></div>
     </section>
 
-    <!-- Cierre -->
+    <!-- 19 (extra para llegar a 20) -->
+    <section class="slide" data-title="Recap 4">
+      <div class="content">
+        <p class="kicker">Recap</p>
+        <h2 class="title">Mi parte favorita</h2>
+        <p class="body">Que en todo esto… sigues siendo tú. (placeholder)</p>
+      </div>
+      <div class="song">Canción: <span class="songName" data-song-index="18"></span></div>
+    </section>
+
+    <!-- 20 -->
     <section class="slide" data-title="Cierre">
       <div class="content">
         <p class="kicker">Final</p>
@@ -226,9 +249,9 @@
           <button class="cta ctaGhost" id="nextSectionBtn" type="button">Siguiente sección</button>
         </div>
 
-        <p class="note">El botón “Siguiente sección” queda listo para que lo conectemos a lo que siga.</p>
+        <p class="note">El botón “Siguiente sección” está listo para conectarse después.</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="18"></span></div>
+      <div class="song">Canción: <span class="songName" data-song-index="19"></span></div>
     </section>
 
   </main>
@@ -236,10 +259,10 @@
   <script>
     (function () {
       // =========================
-      // Config editable (aquí metes datos reales)
+      // Config editable
       // =========================
       const CONFIG = {
-        // Inicio relación (zona -06:00 para que sea consistente con tu contexto)
+        // Inicio relación (zona -06:00)
         startDateISO: "2025-10-18T00:00:00-06:00",
 
         // Mensajes enviados (placeholder)
@@ -250,30 +273,6 @@
           { text: "(pon aquí la frase 1)", count: 0 },
           { text: "(pon aquí la frase 2)", count: 0 },
           { text: "(pon aquí la frase 3)", count: 0 },
-        ],
-
-        // Canción por story (20). Déjalas pendientes y luego rellenas.
-        songs: [
-          "Pendiente (Story 1)",
-          "Pendiente (Story 2)",
-          "Pendiente (Story 3)",
-          "Pendiente (Story 4)",
-          "Pendiente (Story 5)",
-          "Pendiente (Story 6)",
-          "Pendiente (Story 7)",
-          "Pendiente (Story 8)",
-          "Pendiente (Story 9)",
-          "Pendiente (Story 10)",
-          "Pendiente (Story 11)",
-          "Pendiente (Story 12)",
-          "Pendiente (Story 13)",
-          "Pendiente (Story 14)",
-          "Pendiente (Story 15)",
-          "Pendiente (Story 16)",
-          "Pendiente (Story 17)",
-          "Pendiente (Story 18)",
-          "Pendiente (Story 19)",
-          "Pendiente (Story 20)",
         ],
 
         // Timing
@@ -303,29 +302,42 @@
       const nextSectionBtn = document.getElementById("nextSectionBtn");
 
       // =========================
+      // Songs (una por story) - placeholders automáticos
+      // =========================
+      const songs = Array.from({ length: slides.length }, (_, i) => `Pendiente (Story ${i + 1})`);
+
+      // =========================
       // Init content
       // =========================
-      // Messages
-      messagesCount.textContent = String(CONFIG.messagesSent);
+      if (messagesCount) messagesCount.textContent = String(CONFIG.messagesSent);
 
-      // Phrases
-      phrase1Text.textContent = `“${CONFIG.phrases[0].text}”`;
-      phrase2Text.textContent = `“${CONFIG.phrases[1].text}”`;
-      phrase3Text.textContent = `“${CONFIG.phrases[2].text}”`;
+      if (phrase1Text) phrase1Text.textContent = `“${CONFIG.phrases[0].text}”`;
+      if (phrase2Text) phrase2Text.textContent = `“${CONFIG.phrases[1].text}”`;
+      if (phrase3Text) phrase3Text.textContent = `“${CONFIG.phrases[2].text}”`;
 
-      phrase1Count.textContent = String(CONFIG.phrases[0].count);
-      phrase2Count.textContent = String(CONFIG.phrases[1].count);
-      phrase3Count.textContent = String(CONFIG.phrases[2].count);
+      if (phrase1Count) phrase1Count.textContent = String(CONFIG.phrases[0].count);
+      if (phrase2Count) phrase2Count.textContent = String(CONFIG.phrases[1].count);
+      if (phrase3Count) phrase3Count.textContent = String(CONFIG.phrases[2].count);
 
-      // Songs (per slide label)
       document.querySelectorAll(".songName").forEach((el) => {
         const idx = Number(el.getAttribute("data-song-index"));
-        el.textContent = CONFIG.songs[idx] ?? "Pendiente";
+        el.textContent = songs[idx] ?? "Pendiente";
       });
 
       // =========================
-      // Progress bars
+      // Variación visual: asigna clase g1..g20 a cada slide
       // =========================
+      slides.forEach((s, i) => {
+        const n = Math.min(i + 1, 20);
+        s.classList.add(`g${n}`);
+      });
+
+      // =========================
+      // Progress bars (se ajusta a N slides)
+      // =========================
+      progress.style.setProperty("--n", slides.length);
+      progress.innerHTML = "";
+
       const bars = [];
       for (let i = 0; i < slides.length; i++) {
         const bar = document.createElement("div");
@@ -338,10 +350,14 @@
       }
 
       // =========================
-      // Stories engine
+      // Stories engine (pausable)
       // =========================
       let current = 0;
       let timer = null;
+
+      let startedAt = 0;
+      let remainingMs = CONFIG.defaultStoryMs;
+      let paused = false;
 
       function clearTimer() {
         if (timer) {
@@ -354,121 +370,10 @@
         bars.forEach((b, i) => {
           b.bar.classList.toggle("active", i === index);
           b.bar.classList.toggle("done", i < index);
-          // reset fill animation
-          b.fill.style.animation = "none";
-          // force reflow
-          void b.fill.offsetWidth;
         });
       }
 
-      function animateActiveBar(durationMs) {
-        const b = bars[current];
-        if (!b) return;
-        b.fill.style.animation = `fill ${durationMs}ms linear forwards`;
-      }
-
-      function show(index, { autoplay = true } = {}) {
-        if (index < 0) index = 0;
-        if (index >= slides.length) index = slides.length - 1;
-
-        clearTimer();
-
-        slides.forEach((s, i) => s.classList.toggle("active", i === index));
-        current = index;
-
-        setBarState(current);
-
-        // Auto-advance except last slide (deja que cierre se disfrute)
-        const isLast = current === slides.length - 1;
-        const duration = CONFIG.defaultStoryMs;
-
-        if (autoplay && !isLast) {
-          animateActiveBar(duration);
-          timer = window.setTimeout(() => {
-            next();
-          }, duration);
-        } else {
-          // marca barra como llena si no hay autoplay
-          bars[current].fill.style.animation = "none";
-        }
-      }
-
-      function next() {
-        if (current < slides.length - 1) show(current + 1, { autoplay: true });
-      }
-
-      function prev() {
-        if (current > 0) show(current - 1, { autoplay: true });
-      }
-
-      // Click navigation (izq = prev, der = next)
-      app.addEventListener("click", (e) => {
-        // Evitar interferencia con botones CTA
-        const target = e.target;
-        if (target && (target.tagName === "BUTTON" || target.closest("button"))) return;
-
-        const x = e.clientX;
-        const w = window.innerWidth;
-
-        if (x < w * 0.28) prev();
-        else next();
-      });
-
-      // Keyboard navigation
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") {
-          e.preventDefault();
-          next();
-        }
-        if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          prev();
-        }
-      });
-
-      // CTA
-      if (restartBtn) {
-        restartBtn.addEventListener("click", () => show(0, { autoplay: true }));
-      }
-      if (nextSectionBtn) {
-        nextSectionBtn.addEventListener("click", () => {
-          // Placeholder: aquí después lo conectamos a otra página o sección
-          // window.location.href = "next.html";
-          alert("Siguiente sección: listo para conectarse.");
-        });
-      }
-
-      // =========================
-      // Live clock since 2025-10-18
-      // =========================
-      const startMs = new Date(CONFIG.startDateISO).getTime();
-
-      function pad2(n) {
-        return String(n).padStart(2, "0");
-      }
-
-      function tickClock() {
-        const now = Date.now();
-        let diff = Math.max(0, now - startMs);
-
-        const sec = Math.floor(diff / 1000);
-        const days = Math.floor(sec / 86400);
-        const hours = Math.floor((sec % 86400) / 3600);
-        const mins = Math.floor((sec % 3600) / 60);
-        const s = sec % 60;
-
-        // Formato: "X días · HH:MM:SS"
-        sinceClock.textContent = `${days} días · ${pad2(hours)}:${pad2(mins)}:${pad2(s)}`;
-      }
-
-      tickClock();
-      window.setInterval(tickClock, 1000);
-
-      // Start
-      show(0, { autoplay: true });
-
-    })();
-  </script>
-
-</body>
-</html>
+      function setFillInstant(percent) {
+        const fill = bars[current]?.fill;
+        if (!fill) return;
+        fill.style.transitio
