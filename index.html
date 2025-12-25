@@ -6,7 +6,7 @@
   <title>With love, Gen</title>
 
   <!-- CSS externo -->
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 
 <body>
@@ -28,26 +28,67 @@
   <section id="start">
     <h2>¿Comenzamos?</h2>
 
-    <div class="buttons">
-      <button id="yes" type="button">Sipiriri</button>
-      <button id="no" type="button">Nopororo</button>
+    <!-- Botones más vistosos (clases para estilo) -->
+    <div class="choice-buttons">
+      <button id="yes" type="button" class="btn sipiriri">Sipiriri</button>
+      <button id="no" type="button" class="btn nopororo">Nopororo</button>
     </div>
   </section>
 
+  <!-- JS: botón no juguetón + corazones + redirección -->
   <script>
     const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
 
-    // Botón "No" juguetón
-    noBtn.addEventListener("mouseenter", () => {
+    // Corazoncitos (burst) al click
+    function hearts(e) {
+      const count = 14;
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        document.body.appendChild(heart);
+
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 10 + Math.random() * 34;
+
+        const x = e.clientX + Math.cos(angle) * radius + (Math.random() * 10 - 5);
+        const y = e.clientY + Math.sin(angle) * radius + (Math.random() * 10 - 5);
+
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+
+        // Variación sutil de tamaño
+        const scale = 0.75 + Math.random() * 0.9;
+        heart.style.setProperty("--hscale", scale);
+
+        // Variación sutil de deriva
+        const drift = (Math.random() * 60 - 30).toFixed(0) + "px";
+        heart.style.setProperty("--drift", drift);
+
+        setTimeout(() => heart.remove(), 1700);
+      }
+    }
+
+    // Botón "No" juguetón (huye). En mobile toca para que se mueva.
+    function moveNoButton() {
       const x = Math.random() * 220 - 110;
       const y = Math.random() * 180 - 90;
       noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+    }
 
-    // Botón "Sí" -> ir a página aparte
-    yesBtn.addEventListener("click", () => {
-      window.location.href = "wrapped.html";
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", (ev) => {
+      ev.preventDefault();
+      moveNoButton();
+    }, { passive: false });
+
+    // Botón "Sí" -> corazoncitos + ir a wrapped
+    yesBtn.addEventListener("click", (e) => {
+      hearts(e);
+      // Delay corto para que se vea el efecto antes de redirigir
+      setTimeout(() => {
+        window.location.href = "wrapped.html";
+      }, 450);
     });
   </script>
 

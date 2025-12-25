@@ -1,0 +1,163 @@
+:root{
+  --ink: #7a1230;        /* vino */
+  --pine:#0e4b3a;        /* verde pino */
+  --gold:#caa24d;        /* dorado suave */
+  --paper:#fff7fb;       /* papel rosado */
+  --paper2:#fff1f6;
+  --shadow: rgba(0,0,0,.18);
+  --radius: 18px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1000px 520px at 18% 5%, rgba(202, 162, 77, .18), transparent 60%),
+    radial-gradient(900px 520px at 85% 95%, rgba(14, 75, 58, .16), transparent 55%),
+    radial-gradient(1200px 600px at 45% 0%, rgba(255, 120, 170, .14), transparent 60%),
+    linear-gradient(180deg, var(--paper), #ffffff);
+  position: relative;
+  overflow-x:hidden;
+}
+
+/* nieve / confetti sutil */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events:none;
+  opacity:.35;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,.7) 0 1.6px, transparent 2.8px),
+    radial-gradient(circle at 55% 22%, rgba(255,255,255,.8) 0 2.2px, transparent 3.2px),
+    radial-gradient(circle at 78% 35%, rgba(255,255,255,.7) 0 1.8px, transparent 3px),
+    radial-gradient(circle at 88% 70%, rgba(255,255,255,.8) 0 2px, transparent 3.2px),
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,.65) 0 1.7px, transparent 3px);
+  filter: blur(.2px);
+}
+
+.menu{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 28px 18px;
+}
+
+.menuHeader{
+  text-align:center;
+  margin-bottom: 18px;
+  padding: 10px 14px;
+}
+
+.menuHeader h1{
+  letter-spacing: .06em;
+  font-weight: 900;
+  font-size: clamp(24px, 3.5vw, 34px);
+  text-shadow: 0 6px 22px rgba(122,18,48,.12);
+}
+
+.menuHeader p{
+  margin-top: 6px;
+  opacity: .82;
+  font-size: 14px;
+}
+
+.grid{
+  width: min(520px, 92vw);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.58);
+  box-shadow: 0 18px 60px var(--shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(202,162,77,.22);
+}
+
+.tile{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+
+  text-decoration:none;
+  color: var(--ink);
+
+  border: 2px solid rgba(122, 18, 48, .32);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.94), rgba(255,255,255,.78));
+  border-radius: var(--radius);
+
+  height: 150px;
+  box-shadow: 0 10px 22px rgba(122,18,48,.12);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.tile:hover{
+  transform: translateY(-2px);
+  border-color: rgba(202,162,77,.55);
+  box-shadow: 0 18px 34px rgba(122,18,48,.16);
+}
+
+.tile:active{ transform: scale(.985); }
+
+.icon{
+  width: 58px;
+  height: 58px;
+  display:grid;
+  place-items:center;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 238, 210, .55), rgba(255, 210, 230, .30));
+  border: 2px solid rgba(202, 162, 77, .28);
+  box-shadow: 0 10px 20px rgba(202,162,77,.10);
+}
+
+.icon svg{
+  width: 34px;
+  height: 34px;
+  color: var(--ink);
+}
+
+.label{
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+/* acento verde/dorado por tile (opcional, sutil) */
+.tile:nth-child(2) .icon,
+.tile:nth-child(4) .icon{
+  border-color: rgba(14,75,58,.26);
+}
+.tile:nth-child(2):hover,
+.tile:nth-child(4):hover{
+  border-color: rgba(14,75,58,.38);
+}
+
+.menuFooter{ margin-top: 16px; }
+
+.softBtn{
+  border: 0;
+  background: rgba(14,75,58,.10);
+  color: var(--pine);
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor:pointer;
+  box-shadow: 0 10px 24px rgba(14,75,58,.10);
+}
+.softBtn:hover{ background: rgba(14,75,58,.14); }
+
+@media (max-width: 380px){
+  .tile{ height: 135px; }
+  .icon{ width:52px; height:52px; }
+  .icon svg{ width:32px; height:32px; }
+}

@@ -109,3 +109,44 @@ button {
     transform: translateY(0);
   }
 }
+.heart {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  background: #ff5fa2;
+  transform: rotate(45deg);
+  pointer-events: none;
+  animation: floatUp 1.6s ease forwards;
+  z-index: 9999;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ff5fa2;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -7px;
+  left: 0;
+}
+
+.heart::after {
+  left: -7px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(0.4) rotate(45deg);
+  }
+}

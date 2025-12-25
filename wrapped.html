@@ -464,7 +464,9 @@
 
       // CTA
       if (restartBtn) restartBtn.addEventListener("click", () => { tryStartAudio(); show(0); });
-      if (nextSectionBtn) nextSectionBtn.addEventListener("click", () => alert("Siguiente sección: listo para conectarse."));
+    if (nextSectionBtn) nextSectionBtn.addEventListener("click", () => {window.location.href = "menu.html";
+});
+
 
       // Live clock
       const startMs = new Date(CONFIG.startDateISO).getTime();

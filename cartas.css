@@ -1,0 +1,125 @@
+.wrap{
+  min-height:100%;
+  width:min(980px, 94vw);
+  margin: 0 auto;
+  padding: 22px 14px 28px;
+}
+
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.titles{
+  text-align:center;
+  flex: 1;
+}
+
+.titles h1{
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-weight: 900;
+  color: var(--ink);
+}
+
+.titles p{
+  margin-top: 6px;
+  opacity: .8;
+  font-size: 14px;
+}
+
+.pill{
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 2px solid rgba(202,162,77,.25);
+  background: rgba(255,255,255,.62);
+  color: var(--ink);
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.pill:hover{ border-color: rgba(14,75,58,.26); }
+
+.gridLetters{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr); /* 4 cartas = 2x2 */
+  gap: 14px;
+}
+
+.letterCard{
+  position:relative;
+  text-decoration:none;
+  color: var(--ink);
+  border-radius: 22px;
+  padding: 16px 16px 14px;
+  background: rgba(255,255,255,.62);
+  border: 2px solid rgba(122,18,48,.20);
+  box-shadow: 0 18px 60px rgba(0,0,0,.12);
+  backdrop-filter: blur(10px);
+  transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+  min-height: 170px;
+  overflow:hidden;
+}
+
+.letterCard:hover{
+  transform: translateY(-2px);
+  border-color: rgba(202,162,77,.50);
+  box-shadow: 0 22px 70px rgba(0,0,0,.14);
+}
+
+.stamp{
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  font-weight: 900;
+  background: linear-gradient(180deg, rgba(255,238,210,.75), rgba(255,210,230,.30));
+  border: 2px solid rgba(202,162,77,.28);
+}
+
+.letterCard h2{
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.letterCard p{
+  opacity: .82;
+  line-height: 1.45;
+  font-size: 14px;
+  margin-bottom: 12px;
+  max-width: 52ch;
+}
+
+.meta{
+  display:inline-block;
+  font-weight: 900;
+  color: var(--pine);
+  background: rgba(14,75,58,.10);
+  border: 1px solid rgba(14,75,58,.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.bottom{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+@media (max-width: 560px){
+  .gridLetters{ grid-template-columns: 1fr; }
+  .top{ flex-wrap:wrap; }
+  .titles{ order: -1; width: 100%; }
+}

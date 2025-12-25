@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Video</title>
+  <link rel="stylesheet" href="menu.css?v=1" />
+  <style>
+    .panel{
+      width:min(900px,92vw);
+      margin-top: 14px;
+      background: rgba(255,255,255,.62);
+      border: 2px solid rgba(122, 18, 48, .25);
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.14);
+      backdrop-filter: blur(10px);
+    }
+    .videoWrap{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 2px solid rgba(122,18,48,.18);
+      background: rgba(0,0,0,.06);
+    }
+    video{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    .row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 12px;
+    }
+    .btn{
+      text-decoration:none;
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(122,18,48,.25);
+      background: rgba(255,255,255,.75);
+      color: var(--ink);
+      font-weight: 800;
+    }
+    .btn:hover{ border-color: rgba(122,18,48,.45); }
+    .hint{ margin-top: 10px; opacity:.8; font-size: 13px; }
+    code{ background: rgba(122,18,48,.08); padding:2px 6px; border-radius:8px; }
+  </style>
+</head>
+
+<body>
+  <main class="menu">
+    <header class="menuHeader">
+      <h1>Video</h1>
+      <p>Le das play y listo.</p>
+    </header>
+
+    <section class="panel">
+      <div class="videoWrap" aria-label="Reproductor de video">
+        <!-- Cambia el src al nombre real de tu archivo -->
+        <video controls playsinline preload="metadata" src="video.mp4"></video>
+      </div>
+
+      <p class="hint">
+        Si tu archivo se llama distinto, cambia <code>src="video.mp4"</code> por el nombre real.
+      </p>
+
+      <div class="row">
+        <a class="btn" href="menu.html">Volver al menú</a>
+        <a class="btn" href="wrapped.html">Regresar al Wrapped</a>
+        <a class="btn" href="index.html">Home</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

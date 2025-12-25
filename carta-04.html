@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta 4 — Aún en construcción</title>
+  <link rel="stylesheet" href="menu.css?v=2" />
+  <link rel="stylesheet" href="carta-anim.css?v=3" />
+</head>
+
+<body>
+  <main class="page">
+    <header class="nav">
+      <a class="pill" href="cartas.html">← Cartas</a>
+      <a class="pill" href="menu.html">Menú</a>
+    </header>
+
+    <section class="stage" aria-label="Carta animada Año Nuevo">
+      <button id="skipAnim" class="skip" type="button">Saltar animación</button>
+      <div class="dim" aria-hidden="true"></div>
+
+      <div class="envelopeWrap">
+        <!-- HOJA -->
+        <div class="sheet">
+          <div class="sheetTop">
+            <div class="rowTop">
+              <div class="badge">Carta 4</div>
+              <div class="progress">4 / 4</div>
+            </div>
+            <h1>Año Nuevo</h1>
+            <p class="sub"></p>
+          </div>
+
+          <div class="sheetBody" style="text-align:center;">
+            <p style="font-size:22px; font-weight:900; margin-bottom:16px;">
+              Aún en construcción
+            </p>
+
+            <img
+              src="meme.jpg"
+              alt="Aún en construcción"
+              style="
+                width:100%;
+                max-width:420px;
+                border-radius:18px;
+                box-shadow:0 18px 50px rgba(0,0,0,.18);
+                margin:0 auto;
+              "
+            >
+          </div>
+
+          <div class="sheetFoot">
+            <div class="navBtns" style="justify-content:center;">
+              <a class="pill" href="cartas.html">Volver a Cartas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOBRE -->
+        <div class="envelope" aria-hidden="true">
+          <div class="envBack"></div>
+          <div class="envLeft"></div>
+          <div class="envRight"></div>
+          <div class="envFlap"></div>
+          <div class="seal"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="carta-anim.js?v=3"></script>
+</body>
+</html>
