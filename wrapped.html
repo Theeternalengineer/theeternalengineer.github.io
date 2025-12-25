@@ -1,22 +1,28 @@
+<!-- wrapped.html -->
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wrapped</title>
-  <link rel="stylesheet" href="wrapped.css?v=5" />
+  <link rel="stylesheet" href="wrapped.css?v=8" />
 </head>
 
 <body>
 
   <a class="home-btn" href="index.html" aria-label="Volver al inicio">Home</a>
 
-  <!-- Audio opcional (requiere archivo local en tu carpeta) -->
+  <!-- Botón de silencio / sonido (un poquito más abajo) -->
+  <button class="mute-btn" id="muteBtn" type="button" aria-label="Silenciar o activar sonido">
+    Sonido
+  </button>
+
+  <!-- Audio (archivo local en tu carpeta) -->
   <audio
     id="bgAudio"
     preload="auto"
     loop
-    src="dancing-in-the-moonlight-toploader.mp3"
+    src="The Only Exception.mp3"
   ></audio>
 
   <main class="wrapped" id="wrappedApp" aria-label="Wrapped en formato stories">
@@ -29,6 +35,8 @@
         <h1 class="title">Pinkidinkiidou x The_realgenaro<br>Wrapped</h1>
         <p class="sub">Tap para avanzar · Mantén presionado para pausar</p>
       </div>
+
+      <!-- SOLO AQUÍ aparece la canción -->
       <div class="song">Canción: <span class="songName" data-song-index="0"></span></div>
     </section>
 
@@ -43,7 +51,6 @@
         </div>
         <p class="note">Actualizándose en tiempo real.</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="1"></span></div>
     </section>
 
     <!-- 3 -->
@@ -57,7 +64,6 @@
         </div>
         <p class="note">En definitiva, tenemos bastante tiempo libre</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="2"></span></div>
     </section>
 
     <!-- 4 -->
@@ -67,7 +73,6 @@
         <h2 class="title">Nuestra historia verdaderamente comenzó el 5 de agosto de 2024</h2>
         <p class="body">Contigo y un “Holi” que tardaría un poco… pero que nos traería hasta aquí.</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="3"></span></div>
     </section>
 
     <!-- 5 -->
@@ -77,7 +82,6 @@
         <h2 class="title">Tuvimos 3 veces un pequeño distanciamiento</h2>
         <p class="body">Hasta que el 23 de agosto eso acabó… y volvimos a conectar.</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="4"></span></div>
     </section>
 
     <!-- 6 -->
@@ -87,137 +91,152 @@
         <h2 class="title">Dentro de todo esto, tenemos varios momentos muy memorables</h2>
         <p class="body">Son más de los que están aquí… pero no sé programar xd</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="5"></span></div>
     </section>
 
     <!-- 7 -->
     <section class="slide" data-title="Highlight 1">
       <div class="content">
         <p class="kicker">Highlight</p>
-        <h2 class="title">La parte donde todo se sintió simple</h2>
-        <p class="body">(Aquí va un recuerdo corto, 1–2 líneas)</p>
+        <h2 class="title">La primera vez que te vi</h2>
+
+        <p class="body">
+          Todavía me acuerdo de ir saliendo de Querétaro y replanteándome todo.
+          Y luego estar afuera de tu depa, esperándote… yo muriéndome de miedo
+          (de que fueras un señor pelón o algo así JAJAJA).
+          Pero cuando por fin te vi, supe que todo valía la pena.
+        </p>
+
+        <div class="photoGrid" aria-label="Fotos de nuestro primer encuentro">
+          <figure class="photoCard">
+            <img src="5CEAFE04-830F-49FA-897E-FB85603F5378.JPEG" alt="Flores blancas" loading="lazy">
+          </figure>
+
+          <figure class="photoCard">
+            <img src="IMG_0024.JPEG" alt="Nuestra primera date" loading="lazy">
+          </figure>
+        </div>
+
+        <p class="note">De ahí… nuestra primera date.</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="6"></span></div>
     </section>
 
     <!-- 8 -->
     <section class="slide" data-title="Highlight 2">
       <div class="content">
         <p class="kicker">Highlight</p>
-        <h2 class="title">La parte donde nos elegimos</h2>
-        <p class="body">(Aquí va un recuerdo corto, 1–2 líneas)</p>
+        <h2 class="title">Y ahora, el día en que oficialmente todo comenzó.</h2>
+
+        <div class="photoGrid single" aria-label="Foto del 18 de octubre">
+          <figure class="photoCard">
+            <img src="story8.jpeg" alt="Recuerdo del 18 de octubre" loading="lazy">
+          </figure>
+        </div>
+        <p class="body">
+          18 de octubre. Yo pensé que hasta me dirías que era pronto para comenzar,
+          ya que apenas nos veíamos por primera vez. Pero tras más de 1 año de intentarlo contigo,
+          valía la pena arriesgarse.
+        </p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="7"></span></div>
     </section>
 
     <!-- 9 -->
-    <section class="slide" data-title="Highlight 3">
+    <section class="slide" data-title="Conocernos más">
       <div class="content">
-        <p class="kicker">Highlight</p>
-        <h2 class="title">La parte donde el mundo bajó el volumen</h2>
-        <p class="body">(Aquí va un recuerdo corto, 1–2 líneas)</p>
+        <p class="kicker">Desde entonces…</p>
+        <h2 class="title">Te he ido conociendo más y más</h2>
+        <p class="body">
+          He amado cada parte de ti <strong>(even the weird ones jajajajaja)</strong>.
+          Y estoy seguro que aún me falta bastante por conocer de ti…
+          <br><br>
+          Hasta ahora solo sé que…
+        </p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="8"></span></div>
     </section>
 
     <!-- 10 -->
-    <section class="slide" data-title="Antes del Top 5">
+    <section class="slide" data-title="Peligro público">
       <div class="content">
-        <p class="kicker">Ahora sí</p>
-        <h2 class="title">Top 5 momentos</h2>
-        <p class="body">Cinco stories, cinco recuerdos. Uno por pantalla.</p>
+        <p class="kicker">Dato curioso (y preocupante)</p>
+        <h2 class="title">
+          Has estado muy cerca de convertirte en un<br>
+          <span class="highlight danger">PELIGRO PARA LA SOCIEDAD</span>
+        </h2>
+        <p class="body">
+          unas <span class="big-number">14</span> veces.
+        </p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="9"></span></div>
     </section>
 
     <!-- 11 -->
-    <section class="slide" data-title="Top 1">
+    <section class="slide" data-title="Expresiones icónicas">
       <div class="content">
-        <p class="kicker">Top 1</p>
-        <h2 class="title">(Momento 1)</h2>
-        <p class="body">(1–2 líneas)</p>
+        <p class="kicker">Análisis lingüístico no solicitado</p>
+        <h2 class="title">
+          Has dicho <span class="highlight yay">“yay”</span><br>
+          (y todas sus variantes posibles)
+        </h2>
+        <p class="body">
+          al menos <span class="big-number">70+</span> veces.
+          <br><br>
+          <span class="subtle">
+            yay · yaaay · yai · yayyy · YAAY · y a y
+          </span>
+        </p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="10"></span></div>
     </section>
 
     <!-- 12 -->
-    <section class="slide" data-title="Top 2">
+    <section class="slide" data-title="Un momento clave">
       <div class="content">
-        <p class="kicker">Top 2</p>
-        <h2 class="title">(Momento 2)</h2>
-        <p class="body">(1–2 líneas)</p>
+        <p class="kicker">Momento histórico</p>
+
+        <h2 class="title">
+          Me dijiste <span class="highlight love">“te amo”</span><br>
+          por primera vez
+        </h2>
+
+        <p class="body">
+          el <strong>17 de noviembre</strong><br>
+          a las <strong>9:36 pm</strong>.
+          <br><br>
+          Un momento completamente inolvidable para mí.
+        </p>
+
+        <p class="body">
+          Y desde entonces, nos lo hemos dicho<br>
+          alrededor de <span class="big-number">90+</span> veces.
+        </p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="11"></span></div>
     </section>
 
     <!-- 13 -->
-    <section class="slide" data-title="Top 3">
-      <div class="content">
-        <p class="kicker">Top 3</p>
-        <h2 class="title">(Momento 3)</h2>
-        <p class="body">(1–2 líneas)</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="12"></span></div>
-    </section>
+    <section class="slide highlight-layout" data-title="La canción">
+      <div class="highlight-card">
 
-    <!-- 14 -->
-    <section class="slide" data-title="Top 4">
-      <div class="content">
-        <p class="kicker">Top 4</p>
-        <h2 class="title">(Momento 4)</h2>
-        <p class="body">(1–2 líneas)</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="13"></span></div>
-    </section>
+        <div class="highlight-text">
+          <span class="highlight-label">Y por último</span>
 
-    <!-- 15 -->
-    <section class="slide" data-title="Top 5">
-      <div class="content">
-        <p class="kicker">Top 5</p>
-        <h2 class="title">(Momento 5)</h2>
-        <p class="body">(1–2 líneas)</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="14"></span></div>
-    </section>
+          <h2 class="highlight-title">
+            No soy muy bueno<br>
+            con las palabras.
+          </h2>
 
-    <!-- 16 -->
-    <section class="slide" data-title="Recap 1">
-      <div class="content">
-        <p class="kicker">Recap</p>
-        <h2 class="title">Lo que nos sostiene</h2>
-        <p class="body">(1–2 líneas)</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="15"></span></div>
-    </section>
+          <p class="highlight-body">
+            Y por algunas fallas técnicas no pude poner más stories.
+            <br><br>
+            Pero hay una canción que dice exactamente lo que siento.
+            Es la que mejor me representa contigo,
+            y por eso te la dedico.
+            <br><br>
+            <strong>Paramore — The Only Exception</strong>
+          </p>
+        </div>
 
-    <!-- 17 -->
-    <section class="slide" data-title="Recap 2">
-      <div class="content">
-        <p class="kicker">Recap</p>
-        <h2 class="title">Lo que aprendimos</h2>
-        <p class="body">(1–2 líneas)</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="16"></span></div>
-    </section>
+        <div class="highlight-media">
+          <img src="paramore-the-only-exception.jpg" alt="Paramore - The Only Exception">
+        </div>
 
-    <!-- 18 -->
-    <section class="slide" data-title="Recap 3">
-      <div class="content">
-        <p class="kicker">Recap</p>
-        <h2 class="title">Lo que viene</h2>
-        <p class="body">(1–2 líneas)</p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="17"></span></div>
-    </section>
-
-    <!-- 19 -->
-    <section class="slide" data-title="Recap 4">
-      <div class="content">
-        <p class="kicker">Recap</p>
-        <h2 class="title">Mi parte favorita</h2>
-        <p class="body">Que en todo esto… sigues siendo tú.</p>
-      </div>
-      <div class="song">Canción: <span class="songName" data-song-index="18"></span></div>
     </section>
 
     <!-- 20 -->
@@ -232,9 +251,8 @@
           <button class="cta ctaGhost" id="nextSectionBtn" type="button">Siguiente sección</button>
         </div>
 
-        <p class="note">El botón “Siguiente sección” está listo para conectarse después.</p>
+        <p class="note"></p>
       </div>
-      <div class="song">Canción: <span class="songName" data-song-index="19"></span></div>
     </section>
   </main>
 
@@ -257,24 +275,23 @@
       const nextSectionBtn = document.getElementById("nextSectionBtn");
 
       const bgAudio = document.getElementById("bgAudio");
+      const muteBtn = document.getElementById("muteBtn");
+
       let audioArmed = false;
+      let isMuted = false;
 
-      // ===== Songs =====
-      const songs = Array.from({ length: slides.length }, (_, i) => `Pendiente (Story ${i + 1})`);
-      songs[0] = "Dancing in the Moonlight — Toploader";
-
+      // ===== Song label (solo Story 1) =====
       document.querySelectorAll(".songName").forEach((el) => {
-        const idx = Number(el.getAttribute("data-song-index"));
-        el.textContent = songs[idx] ?? "Pendiente";
+        el.textContent = "The Only Exception — Paramore";
       });
 
       // ===== Init values =====
       if (messagesCount) messagesCount.textContent = `${CONFIG.messagesSent.toLocaleString("es-MX")} mensajes`;
 
-      // ===== Fondo por slide: g1..g20 (como ya lo tienes en wrapped.css) =====
+      // ===== Fondo por slide: g1..g20 =====
       slides.forEach((s, i) => s.classList.add(`g${Math.min(i + 1, 20)}`));
 
-      // ===== Layouts automáticos (si tu wrapped.css trae layout-a/b/c/d/e) =====
+      // ===== Layouts automáticos =====
       const layoutCycle = ["layout-a", "layout-b", "layout-c", "layout-d", "layout-b"];
       slides.forEach((s, i) => {
         s.classList.add(layoutCycle[i % layoutCycle.length]);
@@ -283,10 +300,10 @@
         if (i === 1 || i === 2) { s.classList.remove(...layoutCycle); s.classList.add("layout-c"); }
         if (i === 3 || i === 4 || i === 5) { s.classList.remove(...layoutCycle); s.classList.add("layout-d"); }
         if (i === 9) { s.classList.remove(...layoutCycle); s.classList.add("layout-a"); }
-        if (i >= 10 && i <= 14) { s.classList.remove(...layoutCycle); s.classList.add("layout-e"); }
+        if (i >= 10 && i <= 11) { s.classList.remove(...layoutCycle); s.classList.add("layout-e"); }
         if (i === slides.length - 1) { s.classList.remove(...layoutCycle); s.classList.add("layout-a"); }
 
-        if (i >= 10 && i <= 14) {
+        if (i >= 10 && i <= 11) {
           const big = String(i - 9);
           const content = s.querySelector(".content");
           if (content) content.setAttribute("data-big", big);
@@ -378,12 +395,28 @@
         if (!bgAudio || audioArmed) return;
         audioArmed = true;
         try {
-          bgAudio.volume = 0.55;
+          bgAudio.volume = 0.65;
+          bgAudio.muted = isMuted;
           await bgAudio.play();
-        } catch (e) {
-          // Autoplay bloqueado o archivo no existe: ignora sin romper nada
-        }
+        } catch (e) {}
       }
+
+      function updateMuteUI(){
+        if (!muteBtn) return;
+        muteBtn.textContent = isMuted ? "Silencio" : "Sonido";
+        muteBtn.classList.toggle("muted", isMuted);
+        if (bgAudio) bgAudio.muted = isMuted;
+      }
+
+      if (muteBtn){
+        muteBtn.addEventListener("click", async (e) => {
+          e.stopPropagation();
+          await tryStartAudio();
+          isMuted = !isMuted;
+          updateMuteUI();
+        });
+      }
+      updateMuteUI();
 
       // Tap nav (izq prev / der next)
       app.addEventListener("click", (e) => {
@@ -420,6 +453,7 @@
       window.addEventListener("keydown", (e) => {
         if (e.key === "ArrowRight" || e.key === " " || e.key === "Enter") { e.preventDefault(); tryStartAudio(); next(); }
         if (e.key === "ArrowLeft") { e.preventDefault(); tryStartAudio(); prev(); }
+        if (e.key.toLowerCase() === "m") { isMuted = !isMuted; updateMuteUI(); }
       });
 
       // Pause on tab switch
