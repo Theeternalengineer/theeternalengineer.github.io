@@ -14,7 +14,7 @@
   <!-- PRIMERA SECCIÓN: SOLO FONDO + TEXTO -->
   <section id="hero">
     <h1>
-      Feliz navidad, quesadilla❤️<br><br>
+      Happy Holidays, quesadilla❤️<br><br>
       <span class="subtitle">
         Todo esto fue hecho con amor, dedicación y mucho café...
       </span><br><br>
@@ -33,12 +33,18 @@
       <button id="yes" type="button" class="btn sipiriri">Sipiriri</button>
       <button id="no" type="button" class="btn nopororo">Nopororo</button>
     </div>
+
+    <!-- NUEVO BOTÓN: ir al menú -->
+    <div class="choice-buttons" style="margin-top: 14px;">
+      <button id="menu" type="button" class="btn menu">Ir al menú</button>
+    </div>
   </section>
 
   <!-- JS: botón no juguetón + corazones + redirección -->
   <script>
     const noBtn = document.getElementById("no");
     const yesBtn = document.getElementById("yes");
+    const menuBtn = document.getElementById("menu");
 
     // Corazoncitos (burst) al click
     function hearts(e) {
@@ -89,6 +95,11 @@
       setTimeout(() => {
         window.location.href = "wrapped.html";
       }, 450);
+    });
+
+    // Botón "Ir al menú" -> redirigir a menú
+    menuBtn.addEventListener("click", () => {
+      window.location.href = "menu.html";
     });
   </script>
 
