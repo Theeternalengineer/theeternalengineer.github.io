@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>With love, Gen</title>
 
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 
 <body>
@@ -27,17 +27,16 @@
   <section id="start">
     <h2>¿Comenzamos?</h2>
 
-    <!-- SOLO BOTÓN MENÚ -->
+    <!-- SOLO BOTÓN INICIO -->
     <div class="choice-buttons">
-      <button id="menu" type="button" class="btn menu">
-        Ir al menú
+      <button id="inicio" type="button" class="btn menu">
+        Inicio
       </button>
     </div>
   </section>
 
-  <!-- JS -->
   <script>
-    const menuBtn = document.getElementById("menu");
+    const inicioBtn = document.getElementById("inicio");
 
     // Corazoncitos
     function hearts(e) {
@@ -60,11 +59,11 @@
       }
     }
 
-    // Botón menú → corazones + redirección
-    menuBtn.addEventListener("click", (e) => {
+    // Inicio → corazones + redirección
+    inicioBtn.addEventListener("click", (e) => {
       hearts(e);
       setTimeout(() => {
-        window.location.href = "menu.html";
+        window.location.href = "inicio.html";
       }, 450);
     });
   </script>
