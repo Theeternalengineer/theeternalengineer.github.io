@@ -34,7 +34,7 @@ section {
 
 /* Mantener el fondo anterior para la segunda sección */
 #start {
-  background-image: url("1.svg");
+  background-image: url("Background.svg");
 }
 
 /* Overlay para ambas secciones */
