@@ -22,10 +22,19 @@ section {
   padding: 24px;
   text-align: center;
   position: relative;
-  background-image: url("1.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Fondo al ENTRAR (primera sección) */
+#hero {
+  background-image: url("Background.svg");
+}
+
+/* Mantener el fondo anterior para la segunda sección */
+#start {
+  background-image: url("1.svg");
 }
 
 /* Overlay para ambas secciones */
@@ -109,6 +118,7 @@ button {
     transform: translateY(0);
   }
 }
+
 .heart {
   position: fixed;
   width: 14px;
